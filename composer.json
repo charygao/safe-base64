@@ -1,0 +1,32 @@
+{
+    "name": "pengzhile/safe-base64",
+    "description": "An url safe base64 encode/decode library.",
+    "keywords": ["base64"],
+    "type": "library",
+    "homepage": "https://github.com/pengzhile/safe-base64",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pengzhile",
+            "email": "pengzhile@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+        "psr-4": {"Pengzhile\\Utils\\SafeBase64\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"Pengzhile\\Utils\\SafeBase64\\Tests\\": "tests/"}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
