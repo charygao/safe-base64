@@ -16,6 +16,7 @@ An url safe base64 encode/decode library.
 ```php
 use Pengzhile\Utils\SafeBase64\SafeBase64;
 
+// 更多请参考项目的单元测试
 $strEncoded = SafeBase64::encode('balabala');
 $strDecoded = SafeBase64::decode($strEncoded);
 ```
