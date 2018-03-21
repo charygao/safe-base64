@@ -47,7 +47,7 @@ class SafeBase64
      */
     public static function decode($data, $strict = false)
     {
-        $data = strtr($data, '-_', '+/') . str_repeat('=', (4 - strlen($data) & 3) & 3);
+        $data = strtr($data, '-_', '+/') . str_repeat('=', 4 - strlen($data) & 3);
 
         return base64_decode($data, $strict);
     }
