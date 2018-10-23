@@ -27,10 +27,10 @@
 
 namespace Pengzhile\Utils\SafeBase64\Tests;
 
-use Pengzhile\Utils\SafeBase64\SafeBase64;
+use Pengzhile\Utils\SafeBase64\Base32;
 use PHPUnit_Framework_TestCase;
 
-class SafeBase64Test extends PHPUnit_Framework_TestCase
+class Base32Test extends PHPUnit_Framework_TestCase
 {
     protected $oldErrorMode;
 
@@ -67,29 +67,13 @@ class SafeBase64Test extends PHPUnit_Framework_TestCase
         return implode('', $bytes);
     }
 
-    public function testEncode()
-    {
-        for ($i = 0; $i < 1000; $i++) {
-            $str = SafeBase64::encode($this->randomBytes(mt_rand(1, 1024)));
-
-            $this->assertNotContains('+', $str);
-            $this->assertNotContains('/', $str);
-            $this->assertNotContains('=', $str);
-        }
-    }
-
-    public function testDecode()
+    public function testEncodeDecode()
     {
         for ($i = 0; $i < 1000; $i++) {
             $str = $this->randomBytes(mt_rand(1, 1024));
 
-            $strEncoded = SafeBase64::encode($str);
-            $content = SafeBase64::decode($strEncoded, true);
-            $this->assertEquals($content, $str);
-
-            $strEncoded = base64_encode($str);
-            $content = SafeBase64::decode($strEncoded, true);
-            $this->assertEquals($content, $str);
+            $content = Base32::decode(Base32::encode($str));
+            $this->assertEquals($str, $content);
         }
     }
 }
